@@ -30,6 +30,7 @@ private:
     void setSelectedTableWidgetPix(int index, int type);
     void setTableWidget();
     void wheelEvent(QWheelEvent *event);
+    void turnOver();
 private slots:
     void on_gameTableWidget_cellEntered(int row, int column);
     void on_gameTableWidget_cellClicked(int row, int column);

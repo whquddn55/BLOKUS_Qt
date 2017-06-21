@@ -41,4 +41,3 @@ const char* const PIX_YELLOW_YELLOW = my_strcat(PIX_PATH, "/yellow/yellow_yellow
 const char* const PIX_GRAY = my_strcat(PIX_PATH , "/gray.png");
 
 const int BLOCKSIZE = 21;
-extern int turn;

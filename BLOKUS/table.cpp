@@ -1,8 +1,11 @@
 #include <QLabel>
 #include <cstring>
+#include <queue>
 #include "ui_mainwindow.h"
 #include "table.h"
 #include "constants.h"
+using std::queue;
+extern queue<int> turn;
 
 Table::Table(Ui::MainWindow* const ui)
     :ui(ui){
@@ -137,7 +140,7 @@ bool Table::checkValid(const Block& block) const {
             table[row][column] != GRAY)
             return false;
 
-        switch(turn) {
+        switch(turn.front()) {
         case 0:
             if ( column == 0 && row == 0 )
                 flag = true;
@@ -157,6 +160,7 @@ bool Table::checkValid(const Block& block) const {
         default:
             break;
         }
+
 
         if((checkBound(row - 1, column - 1) && table[row - 1][column - 1] == block.getColor()) ||
            (checkBound(row - 1, column + 1) && table[row - 1][column + 1] == block.getColor()) ||
