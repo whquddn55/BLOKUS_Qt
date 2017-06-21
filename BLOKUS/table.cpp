@@ -14,7 +14,11 @@ Table::Table(Ui::MainWindow* const ui)
              a_PixmapLabel[i][j] = new QLabel();
     set();
 }
-Table::~Table(){ }
+Table::~Table(){
+    for(int i = 0; i < MAX_Y; i++)
+        for(int j = 0; j < MAX_X; j++)
+             delete a_PixmapLabel[i][j];
+}
 
 void Table::set(){
     for(int i = 0; i < MAX_Y; i++)

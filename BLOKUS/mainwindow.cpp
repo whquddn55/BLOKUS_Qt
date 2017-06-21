@@ -41,6 +41,17 @@ MainWindow::MainWindow(QWidget *parent) :
     //
 }
 
+MainWindow::~MainWindow() {
+    for(int i =0; i < 3; i++)
+        for(int j = 0; j < 7; j++)
+            for(int k = 0;k < 4; k++)
+                delete a_PixmapLabel[k][i][j];
+
+    delete selected_PixmapLabel;
+
+    delete ui;
+}
+
 void MainWindow::deleteTableWidgetPix(const int index, int type) {
     char buff[100];
     char tmp[100];
@@ -244,7 +255,7 @@ void MainWindow::on_tableWidget_4_cellClicked(int row, int column){
     setSelectedTableWidgetPix(3,row * 7 + column + 1);
 }
 
-void MainWindow::on_endButton_1_clicked(bool checked){
+void MainWindow::on_endButton_1_clicked(){
     QMessageBox msgBox;
     if (turn.front() != 0){
         msgBox.setText("자기 턴에만 기권할 수 있습니다.");
@@ -270,7 +281,7 @@ void MainWindow::on_endButton_1_clicked(bool checked){
     }
 }
 
-void MainWindow::on_endButton_2_clicked(bool checked){
+void MainWindow::on_endButton_2_clicked(){
     QMessageBox msgBox;
     if (turn.front() != 1){
         msgBox.setText("자기 턴에만 기권할 수 있습니다.");
@@ -296,7 +307,7 @@ void MainWindow::on_endButton_2_clicked(bool checked){
     }
 }
 
-void MainWindow::on_endButton_3_clicked(bool checked){
+void MainWindow::on_endButton_3_clicked(){
     QMessageBox msgBox;
     if (turn.front() != 2){
         msgBox.setText("자기 턴에만 기권할 수 있습니다.");
@@ -322,7 +333,7 @@ void MainWindow::on_endButton_3_clicked(bool checked){
     }
 }
 
-void MainWindow::on_endButton_4_clicked(bool checked){
+void MainWindow::on_endButton_4_clicked(){
     QMessageBox msgBox;
     if (turn.front() != 3){
         msgBox.setText("자기 턴에만 기권할 수 있습니다.");
@@ -346,10 +357,5 @@ void MainWindow::on_endButton_4_clicked(bool checked){
             return;
         }
     }
-}
-
-
-MainWindow::~MainWindow() {
-    delete ui;
 }
 

@@ -181,6 +181,8 @@ void Block::setPos(){
         pos[2][1] = cur[1];
         pos[3][0] = cur[0];
         pos[3][1] = cur[1];
+        pos[4][0] = cur[0];
+        pos[4][1] = cur[1];
         break;
     case 3:
         switch(state) {

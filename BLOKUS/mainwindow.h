@@ -40,8 +40,8 @@ private slots:
     void on_tableWidget_2_cellClicked(int row, int column);
     void on_tableWidget_3_cellClicked(int row, int column);
     void on_tableWidget_4_cellClicked(int row, int column);
-    void on_endButton_1_clicked(bool checked);
-    void on_endButton_2_clicked(bool checked);
-    void on_endButton_3_clicked(bool checked);
-    void on_endButton_4_clicked(bool checked);
+    void on_endButton_1_clicked();
+    void on_endButton_2_clicked();
+    void on_endButton_3_clicked();
+    void on_endButton_4_clicked();
 };
