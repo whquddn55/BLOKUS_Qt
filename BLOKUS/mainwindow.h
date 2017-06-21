@@ -29,8 +29,10 @@ private:
     void deleteTableWidgetPix(const int index, int type);
     void setSelectedTableWidgetPix(int index, int type);
     void setTableWidget();
+    void turnOver() const;
+    void endGame() const;
+
     void wheelEvent(QWheelEvent *event);
-    void turnOver();
 private slots:
     void on_gameTableWidget_cellEntered(int row, int column);
     void on_gameTableWidget_cellClicked(int row, int column);

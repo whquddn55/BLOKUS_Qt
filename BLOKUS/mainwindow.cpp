@@ -1,5 +1,6 @@
 #include <QMessageBox>
 #include <queue>
+#include <cstdio>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "constants.h"
@@ -126,14 +127,37 @@ void MainWindow::wheelEvent(QWheelEvent *event){
     gameTable.addselectedBlock(user[turn.front()].getSelectedBlock(), user[turn.front()].getSelectedBlock().getCurX(), user[turn.front()].getSelectedBlock().getCurY());
 }
 
-void MainWindow::turnOver() {
+void MainWindow::turnOver() const {
     int tmp = turn.front();
     turn.pop();
 
-    if( user[tmp].isEnd() == true)
+    if( user[tmp].isEnd() == true){
+        if( turn.size() == 0)
+            endGame();
         return;
+    }
 
     turn.push(tmp);
+}
+
+void MainWindow::endGame() const {
+    char msg[100] = "winner : ";
+    char tmp[20];
+    int maxScore = 0;
+    for(int i = 0; i < 4; i++)
+        if( user[i].getScore() > maxScore )
+            maxScore = user[i].getScore();
+    for(int i = 0; i < 4; i++)
+        if( user[i].getScore() == maxScore ){
+                sprintf(tmp,"user %d ",i + 1);
+                strcat(msg,tmp);
+            }
+    sprintf(tmp, "[score : %d]\n", maxScore);
+    strcat(msg, tmp);
+
+    QMessageBox msgBox;
+    msgBox.setText(msg);
+    msgBox.exec();
 }
 
 void MainWindow::on_gameTableWidget_cellEntered(int row, int column){
