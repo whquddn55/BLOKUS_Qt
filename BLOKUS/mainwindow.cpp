@@ -300,7 +300,7 @@ void MainWindow::on_endButton_3_clicked(bool checked){
 
 void MainWindow::on_endButton_4_clicked(bool checked){
     QMessageBox msgBox;
-    if (turn.front() != 4){
+    if (turn.front() != 3){
         msgBox.setText("자기 턴에만 기권할 수 있습니다.");
         msgBox.exec();
     }
