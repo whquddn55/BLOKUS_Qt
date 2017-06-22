@@ -1,6 +1,7 @@
 **BLOKUS_Qt**
 ==============
 DEVELOPED BY ByeongWoo Cho, <whquddn55@naver.com>
+
 Git hub page : <https://github.com/whquddn55/BLOKUS_Qt>
 ## **ABOUT PROJECT**
 ### LANGUAGE
